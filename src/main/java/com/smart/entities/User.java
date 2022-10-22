@@ -30,14 +30,13 @@ public class User {
 	@Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Invalid Email!!")
 	private String email;
 	@NotBlank(message = "Passwaord can't be empty!!")
-	@Size(min = 3, max = 12, message = "password must be between 3 to 12 character!!")
 	private String password;
 	private String role;
 	private boolean enabled;
 	private String imageUrl;
 	@Column(length = 200)
 	@NotBlank(message = "Please add something about yourself!!")
-	@Size(min = 50, max = 200, message = "please enter min 50 and max 200!!")
+	@Size(min = 5, max = 200, message = "please enter min 5 and max 200!!")
 	private String about;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

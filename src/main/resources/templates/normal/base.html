@@ -39,21 +39,28 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" th:href="@{/}">Home</a></li>
 
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/linkabout/}">About</a></li>
-
 					<li class="nav-item"><a class="nav-link" href="#"
-						th:href="@{/linklogin/}" tabindex="-1" aria-disabled="true">LogIn</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/linksignup/}" tabindex="-1" aria-disabled="true">SignUp</a></li>
+						tabindex="-1" aria-disabled="true"><span
+							th:text="${user.name}"></span></a></li>
+
+					<li class="nav-item"><a class="nav-link" th:href="@{/logout}"
+						tabindex="-1" aria-disabled="true">Logout</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- End Of NavBar -->
 
+	//Side bar
+	<div class="sidebar"></div>
+	//End side bar
+	<div class="content">
+		<div th:replace="${content}"></div>
+	</div>
 
-	<div th:replace="${content}"></div>
+
+
+
 
 	<!-- Optional JavaScript; choose one of the two! -->
 

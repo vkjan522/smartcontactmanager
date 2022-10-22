@@ -4,9 +4,11 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,36 +20,40 @@ import com.smart.helper.Message;
 
 @Controller
 public class HomeController {
+
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+
 	@Autowired
 	private UserRepository userrepository;
 
-	@RequestMapping("/newhome")
+	@RequestMapping("/")
 	public String home(Model model) {
 		model.addAttribute("title", "Home - Smart Contact manager");
 		return "home";
 	}
 
-	@RequestMapping("/newnamehome")
+	@RequestMapping("/linknamehome")
 	public String nameHome(Model model) {
 		model.addAttribute("title", "Home - Smart Contact manager");
 		return "home";
 	}
 
-	@RequestMapping("/newabout")
+	@RequestMapping("/linkabout")
 	public String about(Model model) {
 		model.addAttribute("title", "About - Smart Contact manager");
 		return "about";
 	}
 
-	@RequestMapping("/newsignup")
+	@RequestMapping("/linksignup")
 	public String signup(Model model) {
 		model.addAttribute("title", "Register - Smart Contact manager");
 		model.addAttribute("user", new User());
 		return "signup";
 	}
 
-	@RequestMapping("/newlogin")
-	public String login(Model model) {
+	@RequestMapping("/linklogin")
+	public String customlogin(Model model) {
 		model.addAttribute("title", "Login - Smart Contact manager");
 		return "login";
 	}
@@ -70,6 +76,8 @@ public class HomeController {
 			user.setRole("ROLE_USER");
 			user.setEnabled(true);
 			user.setImageUrl("default.png");
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
+
 			System.out.println("Agreement " + agreement);
 			System.out.println("User: " + user);
 			User result = this.userrepository.save(user);
@@ -85,5 +93,7 @@ public class HomeController {
 		}
 
 	}
+	//handler for custom login
+	
 
 }
