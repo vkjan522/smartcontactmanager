@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Add-contact-form</title>
+</head>
+
+<body>
+	<section>
+		<div class="card ms-3 me-3">
+			<div class="card-body">
+				<h1 class="text-center">
+					<i class="fa-sharp fa-solid fa-address-card"></i> Add Contacts
+				</h1>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+							<form action="#" th:object="${contact}" enctype="multipart/form-data" method="POST"
+								th:action="@{/user/process-contact}" class="mt-2">
+
+								<!-- first Name field -->
+
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+											class="fa-solid fa-user"></i></span> <input type="text" id="name"
+										name="name" class="form-control" placeholder="Username" aria-label="Username"
+										aria-describedby="basic-addon1">
+								</div>
+								<!-- Nick Name field -->
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+											class="fa-solid fa-user"></i></span> <input type="text" id="secondName"
+										name="secondName" class="form-control" placeholder="Username"
+										aria-label="Username" aria-describedby="basic-addon1">
+								</div>
+								<!-- work -->
+
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+											class="fa-solid fa-briefcase"></i></span> <input type="text" id="work"
+										name="work" class="form-control" placeholder="work" aria-label="work"
+										aria-describedby="basic-addon1">
+								</div>
+								<!-- email-->
+
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+											class="fa-solid fa-envelope"></i></span> <input type="email" id="email"
+										name="email" class="form-control" placeholder="email" aria-label="secondName"
+										aria-describedby="basic-addon1">
+								</div>
+								<!--phone -->
+
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1"><i
+											class="fa-solid fa-phone"></i></span> <input type="number" id="phone"
+										name="phone" class="form-control" placeholder="phone" aria-label="secondName"
+										aria-describedby="basic-addon1">
+								</div>
+								<!-- contact description -->
+								<div class="form-group mt-3">
+									<span>About</span>
+									<textarea placeholder="Enter your Contact description!!" name="description"
+										id="description" class="form-control" rows="10"></textarea>
+								</div>
+								<!-- contact image -->
+								<div class="custom-file mt-3">
+									<input type="file" name="profileImage" />
+								</div>
+								<!-- submit -->
+
+								<div class="container text-center mt-3">
+									<button type="submit" class="btn btn-outline-primary">Save
+										Contact</button>
+									<button type="reset" class="btn btn-outline-warning">Clear</button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

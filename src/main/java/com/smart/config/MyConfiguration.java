@@ -41,13 +41,15 @@ public class MyConfiguration {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/user/**").hasRole("USER")
-				.antMatchers("/**").permitAll().and().formLogin()
-				.loginPage("/linklogin")
-				.loginProcessingUrl("/dologin")
-				.defaultSuccessUrl("/user/index")
-				//.failureUrl("/login-fail")
-				.and().csrf().disable();
+		http.authorizeRequests()
+			.antMatchers("/admin/**").hasRole("ADMIN")
+			.antMatchers("/user/**").hasRole("USER")
+			.antMatchers("/**").permitAll().and().formLogin()
+			.loginPage("/linklogin")
+			.loginProcessingUrl("/dologin")
+			.defaultSuccessUrl("/user/index")
+			//.failureUrl("/login-fail")
+			.and().csrf().disable();
 
 		http.formLogin().defaultSuccessUrl("/user/index", true);
 
