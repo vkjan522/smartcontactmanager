@@ -1,12 +1,14 @@
-{"properties": [
-  {
-    "name": "spring.datasourse.driver-class-name",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.datasourse.driver-class-name'"
-  },
-  {
-    "name": "spring.datasourse.url",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.datasourse.url'"
-  }
-]}
+{
+	"properties": [
+		{
+			"name": "spring.datasourse.driver-class-name",
+			"type": "java.lang.String",
+			"description": "A description for 'spring.datasourse.driver-class-name'"
+		},
+		{
+			"name": "spring.datasourse.url",
+			"type": "java.lang.String",
+			"description": "A description for 'spring.datasourse.url'"
+		}
+	]
+}

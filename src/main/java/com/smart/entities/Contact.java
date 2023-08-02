@@ -47,11 +47,11 @@ public class Contact {
 		this.name = name;
 	}
 
-	public String getNickName() {
+	public String getSecondName() {
 		return secondName;
 	}
 
-	public void setNickName(String secondName) {
+	public void setSecondName(String secondName) {
 		this.secondName = secondName;
 	}
 
@@ -102,5 +102,4 @@ public class Contact {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 }
